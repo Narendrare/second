@@ -1,2 +1,2 @@
 FROM tomcat:8.0
-COPY */target/*.jar /usr/local/tomcat/webapps/
+COPY /var/lib/jenkins/workspace/jenkinspipeline/target/*.jar /usr/local/tomcat/webapps/
