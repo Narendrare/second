@@ -6,7 +6,7 @@
   <artifactId>Helloworld</artifactId>
   <version>1.0-SNAPSHOT</version>
    <packaging>jar</packaging>
-   <pluginManagement>
+   
       <plugins>
             <!-- Preferences for creating a docker image from a Dockerfile-->
             <plugin>
@@ -20,5 +20,5 @@
                 </configuration>
             </plugin>
         <plugins>
- </pluginManagement>
+ 
 </project>
