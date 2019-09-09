@@ -24,5 +24,6 @@
                     </buildArgs>
                 </configuration>
             </plugin>
+        <plugins>
  </pluginManagement>
 </project>
