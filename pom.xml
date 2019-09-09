@@ -13,13 +13,8 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker.plugin.version}</version>
-                <executions>
-                     ....
-                </executions>
-
                 <configuration>
-                      .....
-                    <buildArgs>
+                <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
                 </configuration>
