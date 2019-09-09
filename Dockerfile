@@ -1,2 +1,3 @@
 FROM tomcat:8.0
-COPY /var/lib/jenkins/workspace/jenkinspipeline/target/Helloworld-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
+RUN chmod +x /var/lib/jenkins/workspace/jenkinspipeline/target/*.jar
+COPY /var/lib/jenkins/workspace/jenkinspipeline/target/*.jar /usr/local/tomcat/webapps/
