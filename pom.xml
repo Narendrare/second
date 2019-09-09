@@ -6,19 +6,3 @@
   <artifactId>Helloworld</artifactId>
   <version>1.0-SNAPSHOT</version>
    <packaging>jar</packaging>
-   
-      <plugins>
-            <!-- Preferences for creating a docker image from a Dockerfile-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${docker.plugin.version}</version>
-                <configuration>
-                <buildArgs>
-                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-        <plugins>
- 
-</project>
