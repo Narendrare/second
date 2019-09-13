@@ -1,19 +1,19 @@
-node {
-  stage('SCM') {
-    git 'https://git-codecommit.us-east-2.amazonaws.com/v1/repos/Sankari'
-  }
-   stage('SonarQube analysis') {
-    def scannerHome = tool 'SonarScanner 4.0';
-    withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-    stage('mvn build')
-     sh 'mvn clean package'
-   stage('Build Docker'){
-     sh 'docker build'
+
+node{
+   stage('SCM Checkout'){
+       git credentialsId: 'git-creds', url: 'https://github.com/Narendrare/second.git'
+   }
+   stage('Mvn Package'){
+     def mvnHome = tool name: 'maven-3', type: 'maven'
+     def mvnCMD = "${mvnHome}/bin/mvn"
+     sh "${mvnCMD} clean package"
+   }
+   stage('build docker image'){
+     sh label: '', script: 'docker build -t test .'
    }
    stage('push ECR'){
-     docker.withRegistry('http://011701854391.dkr.ecr.us-east-2.amazonaws.com/test' , 'ecr:us-east-1:demo-ecr-credentials')
-     }
-     sh 'docker push'
-   
+    docker.withRegistry('http://011701854391.dkr.ecr.us-east-2.amazonaws.com' , 'ecr:us-east-2:ecr1'){
+    docker.image('test').push()    
+    }
+   }
+  }
